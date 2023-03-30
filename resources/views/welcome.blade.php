@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Filospace</title>
+    <link rel="icon" type="image/x-icon" href="{{asset('images/icon.png')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Carousel CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
@@ -75,17 +76,17 @@
             </div>
         </nav>
 
-        <br><br>
+        <br>
 
-        <div class="d-flex justify-content-between text-white container-fluid mb-5" id="web-nav">
+        <div class="d-flex justify-content-between text-white container-fluid mb-3" id="web-nav">
             <div class="d-flex flex-inline">
-                <div class="m-1">
+                <div class="m-1 mt-4">
                     <a href="#section-3" class="links">
                         <img src="images/icon-about.png" alt="About Us Icon"> ABOUT US
                     </a>
                 </div>
 
-                <div class="m-1">
+                <div class="m-1 mt-4">
                     <a href="#section-4" class="links">
                         <img src="images/icon-contact.png" alt="Contact Icon"> CONTACT US
                     </a>
@@ -99,10 +100,10 @@
             </div>
 
             <div class="d-flex flex-inline">
-                <div class="m-1" class="links" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" style="cursor:pointer;">
+                <div class="m-1 mt-4" class="links" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" style="cursor:pointer;" id="cart">
                     <img src="images/icon-cart.png" alt="Cart Icon"> CART
                 </div>
-                <div class="m-1 ms-3">
+                <div class="m-1 ms-3 mt-4">
                     @guest
                     <a href="{{route('login')}}" class="links" style="margin-right: 30px;">
                         <img src="{{asset('images/icon-user.png')}}" class="mx-2" alt="Login Icon">LOGIN
@@ -285,47 +286,42 @@
     </section>
 
     <section id="section-3">
-        <br><br><br><br><br><br>
+        <br><br><br>
         <h3 class="text-white text-center letter-space my-5">ABOUT US</h3>
-
-        <div class="wrapper-with-margin">
-            <div id="owl-demo" class="owl-carousel">
-                <div>
-                    <img src="images/sample-img.png" class="img-fluid">
-                    <p class="text-white mt-3"><b>Title 1</b></p>
-                </div>
-
-                <div>
-                    <img src="images/sample-img.png" class="img-fluid">
-                    <p class="text-white mt-3"><b>Title 2</b></p>
-                </div>
-
-                <div>
-                    <img src="images/sample-img.png" class="img-fluid">
-                    <p class="text-white mt-3"><b>Title 3</b></p>
-                </div>
-
-                <div>
-                    <img src="images/sample-img.png" class="img-fluid">
-                    <p class="text-white mt-3"><b>Title 4</b></p>
-                </div>
-
-                <div>
-                    <img src="images/sample-img.png" class="img-fluid">
-                    <p class="text-white mt-3"><b>Title 5</b></p>
-                </div>
-
-                <div>
-                    <img src="images/sample-img.png" class="img-fluid">
-                    <p class="text-white mt-3"><b>Title 6</b></p>
-                </div>
-
-                <div>
-                    <img src="images/sample-img.png" class="img-fluid">
-                    <p class="text-white mt-3"><b>Title 7</b></p>
-                </div>
-
+        <br><br><br><br>
+        <div id="carouselExample" class="carousel slide ">
+            <div class="carousel-inner">
+                @forelse ($carousel as $dashboard)
+                    <?php
+                        $count++;
+                    ?>
+                    <div class="carousel-item @if($count == '1') active @endif">
+                        <img src="storage/carousel/{{$dashboard->filename}}" class="d-block img-fluid" alt="{{$dashboard->title}}" 
+                        style="width: 1416px; height: 415px; margin: auto;">
+                    </div>
+                @empty 
+                    <div class="carousel-item active">
+                        <img src="{{asset('images/sample-img.png')}}" class="d-block img-fluid" alt="..." 
+                        style="width: 1416px; height: 415px; margin: auto;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/sample-img.png')}}" class="d-block img-fluid" alt="..." 
+                        style="width: 1416px; height: 415px; margin: auto;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('images/sample-img.png')}}" class="d-block img-fluid" alt="..." 
+                        style="width: 1416px; height: 415px; margin: auto;">
+                    </div>
+                @endforelse
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
 
         <div class="d-flex justify-content-evenly text-justify mb-3">
@@ -391,14 +387,14 @@
             </div>
         </div>
 
-        <div class="contact-us-icons text-white">
+        <div class="contact-us-icons text-white" id="web-icon">
             <div class="m-3 my-5">
                 <a href="https://www.instagram.com/filospace/" target="_blank">
                     <i class='bx bxl-instagram contact-us-icon'></i>
                 </a>
             </div>
             <div class="m-3 my-5">
-                <a href="#">
+                <a href="https://www.facebook.com/filospace" target="_blank">
                     <i class='bx bxl-facebook-circle contact-us-icon' ></i>
                 </a>
             </div>
@@ -408,6 +404,10 @@
                 </a>
             </div>
         </div>
+
+
+
+
 
     </section>
 
@@ -460,36 +460,7 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!--Jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Owl Carousel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(document).ready(function () {
-                var carousel = $("#owl-demo");
-                carousel.owlCarousel({
-                items: 4,
-                loop:true,
-                nav: true,
-                autoplay: true,
-                navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-                responsiveClass:true,
-                responsive:{
-                    0:{
-                        items:1
-                    },
-                    600:{
-                        items:2
-                    },
-                    1000:{
-                        items:4
-                    }
-                }
-            });  
-        });
-    </script>
 </body>
 </html>

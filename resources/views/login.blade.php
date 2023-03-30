@@ -39,52 +39,59 @@
         </div>
     </nav>
 
-    <br><br>
+    <br>
 
-    <div class="d-flex justify-content-between text-white container-fluid mb-5" id="web-nav">
-        <div class="d-flex flex-inline">
-            <div class="m-1">
-                <a href="#section-3" class="links">
-                    <img src="images/icon-about.png" alt="About Us Icon"> ABOUT US
-                </a>
-            </div>
-
-            <div class="m-1">
-                <a href="#section-4" class="links">
-                    <img src="images/icon-contact.png" alt="Contact Icon"> CONTACT US
-                </a>
-            </div>		
-        </div>
-
-        <div>
-            <a href="/">
-                <img src="images/logo.png" alt="Filospace logo">
+<div class="d-flex justify-content-between text-white container-fluid mb-3" id="web-nav">
+    <div class="d-flex flex-inline">
+        <div class="m-1 mt-4">
+            <a href="#section-3" class="links">
+                <img src="images/icon-about.png" alt="About Us Icon"> ABOUT US
             </a>
         </div>
 
-        <div class="d-flex flex-inline">
-            <div class="m-1">
-                <img src="images/icon-cart.png" alt="Cart Icon"> CART
-            </div>
-            <div class="m-1 ms-3">
-                @guest
-                <a href="{{route('login')}}" class="links" style="margin-right: 30px;">
-                    <img src="images/icon-user.png" class="mx-2" alt="Login Icon">LOGIN
-                </a>
-                @endguest
-                @auth
-                <div class="dropdown links text-white" style="margin-right: 30px; cursor: pointer;">
-                    <p class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="images/icon-user.png" class="mx-1" alt="User Icon"> {{auth()->user()->name}}
-                    </p>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
-                    </ul>
-                </div>
-                @endauth
-            </div>
+        <div class="m-1 mt-4">
+            <a href="#section-4" class="links">
+                <img src="images/icon-contact.png" alt="Contact Icon"> CONTACT US
+            </a>
+        </div>		
+    </div>
+
+    <div>
+        <a href="/">
+            <img src="images/logo.png" alt="Filospace logo">
+        </a>
+    </div>
+
+    <div class="d-flex flex-inline">
+        <div class="m-1 mt-4" class="links" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" style="cursor:pointer;" id="cart">
+            <img src="images/icon-cart.png" alt="Cart Icon"> CART
+        </div>
+        <div class="m-1 ms-3 mt-4">
+            @guest
+            <a href="{{route('login')}}" class="links" style="margin-right: 30px;">
+                <img src="{{asset('images/icon-user.png')}}" class="mx-2" alt="Login Icon">LOGIN
+            </a>
+            @endguest
+            @auth
+            <a href="{{route('admin.index')}}" class="links m-1">
+                <i class='bx bxs-dashboard' class="mx-2"></i> Dashboard
+            </a>
+            <a href="{{route('logout')}}" class="links m-1">
+                <img src="{{asset('images/icon-user.png')}}" class="mx-2" alt="Login Icon">Logout
+            </a>
+            <!-- <div class="dropdown links text-white" style="margin-right: 30px; cursor: pointer;">
+                <p class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{{asset('images/icon-user.png')}}" class="mx-1" alt="User Icon"> {{auth()->user()->name}}
+                </p>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route('admin.index')}}">Dashboard</a></li>
+                    <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
+                </ul>
+            </div> -->
+            @endauth
         </div>
     </div>
+</div>
 
     <br><br><br><br><br><br>
 

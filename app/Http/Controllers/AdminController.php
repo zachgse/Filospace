@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Product,Inquiry};
+use App\Models\{Product,Inquiry, Dashboard};
+use App\Http\Requests\{ CarouselRequest, EditCarouselRequest };
 use Illuminate\Http\Request;
+
+use DB, Str, File;
 
 class AdminController extends Controller
 {
@@ -20,6 +23,13 @@ class AdminController extends Controller
         return view('admin.index', $this->data);
     }
 
+    public function dashboard() 
+    {
+        $this->data['page_title'] = "View Carousel";
+        $this->data['record'] = Dashboard::paginate(10);
+        return view('admin.dashboard', $this->data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +37,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $this->data['page_title'] = "Add Carousel";
+        return view('admin.create', $this->data);
     }
 
     /**
@@ -36,9 +47,32 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CarouselRequest $request)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $dashboard = new Dashboard();
+            $dashboard->title = str::ucfirst($request->get('title'));
+            if ($request->hasFile('filename')) {
+                $file = $request->file('filename');
+                $extention = $file->getClientOriginalExtension();
+                $filename = time().'.'.$extention;
+                $file->move('storage/carousel/', $filename);
+                $dashboard->filename = $filename;
+            }
+            $dashboard->save();
+            DB::commit();
+
+            session()->flash('notification-status', 'success');
+            session()->flash('notification-msg', 'New carousel has been added.');
+
+            return redirect()->route('admin.dashboard');
+        } catch(\Exception $e) {
+            DB::rollback();
+            session()->flash('notification-status', 'failed');
+            session()->flash('notification-msg', "Server Error: Code #{$e->getMessage()}");
+            return redirect()->back();
+        }
     }
 
     /**
@@ -60,7 +94,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->data['page_title'] = "Dashboard";
+        $this->data['dashboard'] = Dashboard::find($id);
+        return view('admin.edit', $this->data);
     }
 
     /**
@@ -70,9 +106,37 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditCarouselRequest $request, $id)
     {
-        //
+        $dashboard = Dashboard::find($id);
+        DB::beginTransaction();
+        try {
+            $dashboard->title = str::ucfirst($request->get('title'));
+            if ($request->hasFile('filename')) {
+                $destination = 'storage/carousel/'.$dashboard->filename;
+                if(File::exists($destination))
+                {
+                    File::delete($destination);
+                }
+                $file = $request->file('filename');
+                $extention = $file->getClientOriginalExtension();
+                $filename = time().'.'.$extention;
+                $file->move('storage/carousel/', $filename);
+                $dashboard->filename = $filename;
+            }
+            $dashboard->save();
+            DB::commit();
+
+            session()->flash('notification-status', 'success');
+            session()->flash('notification-msg', 'Carousel has been updated.');
+
+            return redirect()->route('admin.dashboard');
+        } catch(\Exception $e) {
+            DB::rollback();
+            session()->flash('notification-status', 'failed');
+            session()->flash('notification-msg', "Server Error: Code #{$e->getMessage()}");
+            return redirect()->back();
+        }
     }
 
     /**
@@ -83,6 +147,14 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dashboard = Dashboard::find($id);
+        $image_path = 'storage/carousel/'.$dashboard->filename;
+        if(File::exists($image_path)) {
+            File::delete($image_path);
+        }
+        $dashboard->delete();
+        session()->flash('notification-status', 'success');
+        session()->flash('notification-msg', 'Dashboard has been deleted.');
+        return redirect()->back();
     }
 }

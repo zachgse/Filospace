@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{$page_title}}</title>
+    <link rel="icon" type="image/x-icon" href="{{asset('images/icon.png')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -120,30 +121,30 @@
 
     <div class="d-flex justify-content-between text-white container-fluid" id="web-nav" style="background-color: #717C73; height: 100px;">
         <div class="d-flex flex-inline mt-5">
-            <div class="m-1">
+            <div class="mx-1">
                 <a href="{{route('welcome')}}" class="links">
                     <img src="{{asset('images/icon-about.png')}}" alt="About Us Icon"> ABOUT US
                 </a>
             </div>
 
-            <div class="m-1">
+            <div class="mx-1">
                 <a href="{{route('welcome')}}" class="links">
                     <img src="{{asset('images/icon-contact.png')}}" alt="Contact Icon"> CONTACT US
                 </a>
             </div>		
         </div>
 
-        <div class="mt-5">
+        <div class="mt-3">
             <a href="{{route('welcome')}}">
                 <img src="{{asset('images/logo.png')}}" alt="Filospace logo">
             </a>
         </div>
 
         <div class="d-flex flex-inline mt-5">
-            <div class="m-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" style="cursor:pointer;">
+            <div class="mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" style="cursor:pointer;" id="cart">
                 <img src="{{asset('images/icon-cart.png')}}" alt="Cart Icon"> CART
             </div>
-            <div class="m-1 ms-3">
+            <div class="mx-1 ms-3">
                 @guest
                 <a href="{{route('login')}}" class="links" style="margin-right: 30px;">
                     <img src="{{asset('images/icon-user.png')}}" class="mx-2" alt="Login Icon">LOGIN
@@ -156,14 +157,7 @@
                 <a href="{{route('logout')}}" class="links m-1">
                     <img src="{{asset('images/icon-user.png')}}" class="mx-2" alt="Login Icon">Logout
                 </a>
-                @endauth
-                <!-- @guest
-                <a href="{{route('login')}}" class="links" style="margin-right: 30px;">
-                    <img src="{{asset('images/icon-user.png')}}" class="mx-2" alt="Login Icon">LOGIN
-                </a>
-                @endguest
-                @auth
-                <div class="dropdown links text-white" style="margin-right: 30px; cursor: pointer;">
+                <!-- <div class="dropdown links text-white" style="margin-right: 30px; cursor: pointer;">
                     <p class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{{asset('images/icon-user.png')}}" class="mx-1" alt="User Icon"> {{auth()->user()->name}}
                     </p>
@@ -171,13 +165,11 @@
                         <li><a class="dropdown-item" href="{{route('admin.index')}}">Dashboard</a></li>
                         <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
                     </ul>
-                </div>
-                @endauth -->
+                </div> -->
+                @endauth
             </div>
         </div>
     </div>
-
-    <br>
 
     <form class="input-group search-bar-2 mb-5 auto" method="POST" action="{{route('homepage.search')}}">
         @csrf

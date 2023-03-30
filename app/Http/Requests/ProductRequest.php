@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class ProductRequest extends FormRequest
 {
     public function rules() 
-    {//
+    {
         $rules = [
             'category' => 'required', 
             'title' => 'required', 

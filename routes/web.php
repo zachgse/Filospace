@@ -28,6 +28,12 @@ Route::group(['middleware' => "auth"], function(){
 
     Route::group(['namespace'=>"App\Http\Controllers", 'as'=>"admin.", 'prefix'=>"admin"], function() {
         Route::get('/', ['as'=>"index", 'uses'=>"AdminController@index"]);
+        Route::get('dashboard', ['as'=>"dashboard", 'uses'=>"AdminController@dashboard"]);
+        Route::get('create', ['as'=>"create", 'uses'=>"AdminController@create"]);
+        Route::post('create', ['uses'=>"AdminController@store"]);
+        Route::get('edit{id?}', ['as'=>"edit", 'uses'=>"AdminController@edit"]);
+        Route::post('edit{id?}', ['uses'=>"AdminController@update"]);
+        Route::post('delete/{id?}', ['as'=>"delete", 'uses'=>"AdminController@destroy"]);
         Route::get('inquiry-index', ['as'=>"inquiry-index", 'uses'=>"InquiryController@index"]);
     });
     

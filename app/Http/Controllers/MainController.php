@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Product,Cart};
+use App\Models\{Product,Cart, Dashboard};
 
 class MainController extends Controller
 {
@@ -17,6 +17,8 @@ class MainController extends Controller
         $this->data['images'] = Product::where('category', 'Image')->take(4)->get();
         $this->data['videos'] = Product::where('category', 'Video')->take(4)->get();
         $this->data['vectors'] = Product::where('category', 'Vector')->take(4)->get();
+        $this->data['carousel'] = Dashboard::all();
+        $this->data['count'] = 0;
         $ip_address = request()->ip();
         $this->data['cart'] = Cart::where('ip_address', $ip_address)->get();
         return view ('welcome', $this->data);

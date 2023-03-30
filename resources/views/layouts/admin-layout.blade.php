@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{$page_title}}</title>
+    <link rel="icon" type="image/x-icon" href="{{asset('images/icon.png')}}">
     <!-- bootstrap 5 css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
     <!-- BOX ICONS CSS-->
@@ -83,13 +84,18 @@
                 <img src="{{asset('images/logo.png')}}" alt="Filospace logo" width="200">
             </a>
             <br>
-            <li>
-                <a href="{{route('admin.index')}}" class="nav-link">
-                    <i class='bx bxs-dashboard'></i>
-                    <span class="mx-2">Dashboard</span>
-                </a>
+            <li href="#" class="nav-link">
+                <div class="dropdown">
+                    <p class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class='bx bxs-dashboard'></i>
+                        <span class="mx-2">Carousel</span>
+                    </p>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{route('admin.dashboard')}}">View homepage carousel</a></li>
+                        <li><a class="dropdown-item" href="{{route('admin.create')}}">Add carousel</a></li>
+                    </ul>
+                </div>
             </li>
-            <br>
             <li href="#" class="nav-link">
                 <div class="dropdown">
                     <p class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
