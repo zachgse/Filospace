@@ -67,91 +67,85 @@
         <div class="p-5 ms-5">   
 
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                    <img src="{{asset('img/about-4.png')}}" alt="Melyssa Dawn Gullon" class="img-fluid">
                 </div>
-                <div class="col-lg-6 mt-2">
+                <div class="col-lg-7 mt-4">
                     <br>
                     <p class="inter-regular">
                         <b>Melyssa Dawn Gullon</b>
-                    </p>
-                    <p class="inter-regular">
+                        <br>
                         Chief Executive Officer
                     </p>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-6 mt-2">
+                <div class="col-lg-7 mt-4">
                     <br>
                     <p class="inter-regular">
                         <b>Dustin de Castro</b>
-                    </p>
-                    <p class="inter-regular">
+                        <br>
                         Chief Operations Officer
                     </p>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                    <img src="{{asset('img/about-5.png')}}" alt="Dustin de Castro" class="img-fluid">
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                    <img src="{{asset('img/about-6.png')}}" alt="Raymond Yang" class="img-fluid">
                 </div>
-                <div class="col-lg-6 mt-2">
+                <div class="col-lg-7 mt-4">
                     <br>
                     <p class="inter-regular">
                         <b>Raymond Yang</b>
-                    </p>
-                    <p class="inter-regular">
+                        <br>
                         Chief Technology Officer
                     </p>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-6 mt-2">
+                <div class="col-lg-7 mt-4">
                     <br>
                     <p class="inter-regular">
                         <b>Kyla Masangkay</b>
-                    </p>
-                    <p class="inter-regular">
+                        <br>
                         Chief Marketing Officer
                     </p>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                    <img src="{{asset('img/about-7.png')}}" alt="Kyla Masangkay" class="img-fluid">
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                    <img src="{{asset('img/about-8.png')}}" alt="Geo Sabaco" class="img-fluid">
                 </div>
-                <div class="col-lg-6 mt-2">
+                <div class="col-lg-7 mt-4">
                     <br>
                     <p class="inter-regular">
                         <b>Geo Sabaco</b>
-                    </p>
-                    <p class="inter-regular">
+                        <br>
                         Chief Financial Officer
                     </p>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-6 mt-2">
+                <div class="col-lg-7 mt-4">
                     <br>
                     <p class="inter-regular">
                         <b>Francine Tiongco</b>
-                    </p>
-                    <p class="inter-regular">
+                        <br>
                         Chief Strategy Officer
                     </p>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                    <img src="{{asset('img/about-9.png')}}" alt="Francine Tiongco" class="img-fluid">
                 </div>
             </div>

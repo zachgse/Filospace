@@ -50,7 +50,9 @@
         <div class="parent border-0">
             @forelse($searched_items as $value)
             <div class="child card img-wrapper border-0">
-                <img src="{{ asset("storage/product/{$value->filename}") }}" width="auto" class="img-fluid inner-img">                 
+                <a href="{{route('homepage.show', [$value->id])}}">
+                    <img src="{{ asset("storage/product/{$value->filename}") }}" width="auto" class="img-fluid inner-img">         
+                </a>        
             </div>
             @empty
             <p class="inter-bold text-center">

@@ -30,11 +30,13 @@
 
         <br>
         <div class="green text-white p-3">
-            <p class="inter-regular">
-                Media Title: {{$product->title}}
+            <p class="inter-semi-bold mt-1" style="font-size: 20px;">
+               {{$product->category}} {{$product->id}} : {{$product->title}}
             </p>
             <p class="inter-regular">
-                Media Tags: {{$product->category}}
+                <i>
+                    {{$product->tags}}
+                </i>
             </p>
         </div>
         <br>
