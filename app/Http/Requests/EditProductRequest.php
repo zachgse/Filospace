@@ -11,10 +11,10 @@ class EditProductRequest extends FormRequest
         $rules = [
             'category' => 'required', 
             'title' => 'required', 
-            'tags' => 'required', 
-            'credit' => 'required',
-            'description' => 'required', 
-            'price' => 'required', 
+            'tags' => 'nullable', 
+            'credit' => 'nullable',
+            'description' => 'nullable', 
+            'price' => 'nullable', 
             'filename' => 'nullable', 
         ];
 

@@ -7,7 +7,7 @@
 
         <div class="d-flex text-center justify-content-center mb-3">
             <div class="p-2">
-                <div class="card p-3" style="width: auto;">
+                <div class="card shadow-sm p-3" style="width: auto;">
                     <div class="card-body">
                         <h2 class="card-title">{{$product}}</h2>
                         <br>
@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="p-2">
-                <div class="card p-3" style="width: auto;">
+                <div class="card shadow-sm p-3" style="width: auto;">
                     <div class="card-body">
                         <h2 class="card-title">{{$inquiry}}</h2>
                         <br>

@@ -36,7 +36,7 @@
 </style>
 
 <div class="container-fluid table-responsive">
-    <div class="card" style="min-height: 90vh;">
+    <div class="card shadow-lg" style="min-height: 90vh;">
         <div class="card-body p-5">
             <h4 class="text-center">List of Inquiries</h4>
             <br><hr><br>

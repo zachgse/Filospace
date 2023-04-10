@@ -16,7 +16,7 @@ class InquiryController extends Controller
     public function index()
     {
         $this->data['record'] = Inquiry::paginate(10);
-        $this->data['page_title'] = "View Inquiries";
+        $this->data['page_title'] = "Filospace | View Inquiries";
         return view ('admin.inquiry-index', $this->data);
     }
 

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('tags')->nullable();
             $table->string('credit')->nullable();
             $table->string('description')->nullable();
-            $table->string('price')->nullable();
+            $table->string('price')->default(0)->nullable();
             $table->string('filename')->nullable();
             $table->timestamps();
         });

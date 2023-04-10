@@ -12,7 +12,7 @@ input, textarea, select {
 
 <div class="d-flex justify-content-center align-items-center">
 
-    <div class="card mt-3" style="width: 1000px;">
+    <div class="card shadow-lg mt-3" style="width: 1000px;">
         <div class="card-body p-4">
             <b>Media Edit Form</b>
             <br><br>
@@ -54,7 +54,7 @@ input, textarea, select {
                     <input type="number" class="form-control" name="price" value="{{$product->price}}">
                 </div>
 
-                <button class="btn btn-outline text-white" type="submit" onclick="return confirm('Update the product?')" style="float:right; background-color: #717C73;">Update</button>
+                <button class="btn btn-outline text-white" type="submit" onclick="return confirm('Update the product?')" style="float:right; background-color: #469F9F;">Update</button>
             </form>
         </div>
     </div>

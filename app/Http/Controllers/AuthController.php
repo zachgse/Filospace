@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\{ LoginRequest };
-use App\Models\{ User };
+use App\Models\{ User,Cart };
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
@@ -18,7 +18,9 @@ class AuthController extends Controller
      */
     public function index()
     {
-        $this->data['page_title'] = "Login";
+        $this->data['page_title'] = "Filospace | Login";
+        $ip_address = request()->ip();
+        $this->data['cart'] = Cart::where('ip_address', $ip_address)->get();
         return view('login', $this->data);
     }
 

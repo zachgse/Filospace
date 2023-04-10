@@ -1,10 +1,24 @@
 @font-face {
-    font-family: inter-font;
-    src: url("/font/Inter-Regular.ttf");
+    font-family: interBold;
+    src: url("../font/Inter-Bold.ttf");
 }
 
-* {
-    font-family: inter-font;
+@font-face {
+    font-family: interRegular;
+    src: url("../font/Inter-Regular.ttf");
+}
+
+@font-face {
+    font-family: interSemiBold;
+    src: url("../font/Inter-SemiBold.ttf");
+}
+
+.inter-semi-bold {
+    font-family: interSemiBold;
+}
+
+.inter-regular {
+    font-family: interRegular;
 }
 
 body {
@@ -15,188 +29,169 @@ section {
     min-height: 100vh;
 }
 
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.letter-space {
+    letter-spacing: 10px;
+}
+
+.gray {
+    background-color: #E6E6E6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.green {
+    background-color: #469F9F;
+}
+
+.green-2 {
+    background-color: #3C8C8E;
+}
+
 .auto {
-    margin: auto;
+    margin: auto !important;
 }
 
-.bg-image {
-    background-image: url("../images/hero.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+.navbar {
+    background-color: transparent !important;
 }
 
-.navbar{
-    background-color: black !important;
-    opacity: 66%;
-    width: 100%;
+.nav-link {
+    color: black !important;
 }
 
-.top-nav {
-    background-color: #717C73 !important;
-    height: 120px;
+.nav-link:hover {
+    text-decoration: underline;
+    color: #469F9F !important;
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+.btn-outline {
+    background-color: #469F9F !important;
+    color: white;
+    min-width: 121px;
+    height: 46px;
+}
+
+.btn-outline:hover {
+    background-color: #469F9F !important;
+    color: white;
+    opacity: 0.9;
+}
+
+.btn-outline-2 {
+    background-color: transparent !important;
+    border: solid 1px #469F9F;
+    color: #469F9F;
+    min-width: 121px;
+    height: 46px;
+}
+
+.btn-outline-2:hover {
+    background-color: transparent !important;
+    border: solid 1px #469F9F;
+    color: #469F9F;
+    opacity: 0.9;
+}
+
+.btn-white {
+    background-color: white !important;
+    color: #272D37;
+    border: solid 1px #e1e1e1;
+    min-width: 121px;
+    height: 46px;
+}
+
+.btn-white:hover {
+    background-color: white !important;
+    color: #272D37;
+    border: solid 1px #e1e1e1;
+    opacity: 0.9;
+}
+
+img.gif {
+    border-radius: 50%;
+    width: 275px;
+    height: 275px;
+}
+
+footer {
+    text-align: center;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-logo {
+    border: solid 10px white; 
+    border-radius: 50%;
 }
 
 .search-bar {
-    max-width: 648px;
-    min-width: auto;
     height: 61px; 
 }
 
 .search-bar-input, #basic-addon1, #basic-addon2 {
-    background-color: #E1DFD9 !important;
+    background-color: #f6f6f6 !important;
+    border: solid 1px #f6f6f6;
 }
 
 .search-bar-input, #basic-addon1 {
     border-radius: 5px !important;
 }
 
-.btn-white, .btn-white:hover, .btn-white:focus{
-    background-color: #E1DFD9;
-    border: none;
-}
-
-.btn-outline {
-    background-color: #717C73 !important;
-    max-width: 100px;
-    min-width: auto;
-    color: white;
-}
-
-.btn-outline:hover {
-    background-color: #717C73 !important;
-    max-width: 100px;
-    min-width: auto;
-    color: white;
-    opacity: 0.9;
-}
-
-.bottom-text {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-transform: uppercase;
-}
-
-#section-2 {
-    background-color: #717C73;
-}
-
-.search-bar-2 {
-    max-width: 900px;
-    min-width: auto;
-    height: 80px;
-}
-
-
-
-.search-bar-2 , .search-bar-input-2, #basic-addon3{
-    background-color: #000000 !important;
-    opacity: 77%;
-    border-color: #000000;
-    border-radius: 20px; 
-}
-
-.search-bar-input-2::placeholder {
-    color: white !important;
-}
-
-.btn-black, .btn-black:hover, .btn-black:focus {
-    background-color: black;
-    border: none;
-    color: white;
-}
-
-#section-3 {
-    background-color: #2D2C2C;
-}
-
-
-.bg-image-2 {
-    background-image: url("../images/hero-2.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.contact-form {
-    background-color: #717C73;
-    width: 653px;
-    height: 851px;
-    min-width: auto;
-}
-
-.nav-link {
-    margin: 0px 20px;
-    color: white !important;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-} 
-
-.links {
-    text-decoration: none;
-    color: white !important;
-}
-
-.links:hover {
-    color: #6BA3A3 !important;
-    transition: 0.3s ease;
-}
-
-#cart:hover {
-    color: #6BA3A3 !important;
-    transition: 0.3s ease; 
-}
-
-.navbar-toggler {
-    border :none;
-}
-
-.wrapper {
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.flex-container {
+.parent {
     display: flex;
-    background: transparent;
+    flex-wrap: wrap;
 }
 
-.pull-right {
-    float: right;
-}
-
-.img-wrapper {  
+.child {
+    flex: 1 1 31%;
+    margin: 1px;
     width: auto;
     height: auto;
-    overflow: hidden; 
 }
-  
+
 .inner-img {
     transition: 0.9s;
 }
   
 .inner-img:hover {
+    transition: 0.9s;
     transform: scale(1.1);
+    cursor: pointer;
+    color: #469F9F; 
+    text-decoration: underline;
 }
 
-.contact-us-input, .contact-us-input::placeholder, .contact-us-input:focus {
-    height: 70px; 
-    background-color: #2D2C2C; 
-    color: white !important;
-    border: solid 1px #2D2C2C;
+.homepage-link {
+    color: black;
+    text-decoration: none;
 }
 
-.contact-us-textarea, .contact-us-textarea::placeholder, .contact-us-textarea:focus {
-    background-color: #2D2C2C; 
-    color: white !important;
-    border: solid 1px #2D2C2C;
-    text-align:left !important;
+.homepage-link:hover {
+    transition: 0.9s;
+    color: #469F9F !important;
 }
 
-.letter-space {
-    letter-spacing: 10px;
+.contact-form {
+    width: 653px;
+    height: 851px;
+    min-width: auto;
 }
 
 .contact-us-icons {
@@ -207,7 +202,7 @@ section {
 
 .contact-us-icon {
     text-decoration: none;
-    color: white !important;
+    color: #6BA3A3 !important;
     font-size: 50px;
 }
 
@@ -216,37 +211,7 @@ section {
     color: #6BA3A3 !important;
 }
 
-.text-justify {
-    text-align: justify;
+.input-outline {
+    border: solid 1px #469F9F !important;
 }
 
-@media only screen and (min-width: 991px) {
-    #web-nav {
-        display: block;
-    }
-
-    #mobile-nav {
-        display: none;
-    }
-
-    #mobile-nav-2 {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 991px) {
-    #web-nav {
-        display: none !important;
-    }
-
-    #mobile-nav {
-        display: block;
-        background-color: transparent !important;
-    }
-
-    #mobile-nav-2 {
-        display: block;
-        background-color: #717C73 !important;
-    }
-
-}

@@ -29,7 +29,7 @@
     }
 
     .btn-outline, .btn-outline:hover {
-        background-color: #717C73 !important;
+        background-color: #469F9F !important;
         color: white;
     }
 
@@ -40,7 +40,7 @@
 </style>
 
 <div class="container-fluid">
-    <div class="card" style="min-height: 90vh;">
+    <div class="card shadow-lg" style="min-height: 90vh;">
         <div class="card-body p-5">
             <h4 class="text-center">List of Products</h4>
             <br><hr><br>
@@ -93,7 +93,7 @@
                                 </td>
 
                                 <td>
-                                    <div class="mb5">{{$value->tags}}</div>
+                                    <div class="mb5">{{$value->tags ?: "---"}}</div>
                                 </td>
 
                                 <td>
@@ -101,15 +101,15 @@
                                 </td>
 
                                 <td>
-                                    <div class="mb5">{{ $value->credit }}</div>                        
+                                    <div class="mb5">{{ $value->credit ?: "---"}}</div>                        
                                 </td>
 
                                 <td>
-                                    <div class="mb5">{{ $value->description }}</div>    
+                                    <div class="mb5">{{ $value->description ?: "---"}}</div>    
                                 </td>
 
                                 <td>
-                                    <div class="mb5">{{$value->price}}</div>
+                                    <div class="mb5">{{$value->price ?: "0"}}</div>
                                 </td>
 
                                 <td>

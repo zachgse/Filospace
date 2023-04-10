@@ -12,8 +12,12 @@ Route::group(['middleware' => "guest"], function(){
 Route::get('/', [MainController::class, 'index'])->name('welcome');
 
 Route::group(['namespace'=>"App\Http\Controllers", 'as'=>"homepage.", 'prefix'=>"homepage"], function() {
+    Route::get('discover', ['as'=>"discover", 'uses'=>"MainController@discover"]);
+    Route::get('about', ['as'=>"about", 'uses'=>"MainController@about"]);
+    Route::get('contact', ['as'=>"contact", 'uses'=>"MainController@contact"]);
+
     Route::get('show/{id?}', ['as'=>"show", 'uses'=>"MainController@show"]);
-    Route::get('creative', ['as'=>"creative", 'uses'=>"MainController@creative"]);
+    Route::get('image', ['as'=>"creative", 'uses'=>"MainController@creative"]);
     Route::get('video', ['as'=>"video", 'uses'=>"MainController@video"]);
     Route::get('music', ['as'=>"music", 'uses'=>"MainController@music"]);
     Route::get('vector', ['as'=>"vector", 'uses'=>"MainController@vector"]);

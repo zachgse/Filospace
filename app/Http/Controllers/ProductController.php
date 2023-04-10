@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $this->data['record'] = Product::paginate(10);
-        $this->data['page_title'] = "View Products";
+        $this->data['page_title'] = "Filospace | View Products";
         return view ('product.index', $this->data);
     }
 
@@ -96,7 +96,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $this->data['page_title'] = "Edit Product";
+        $this->data['page_title'] = "Filospace | Edit Product";
         $this->data['product'] = Product::find($id);
         return view ('product.edit', $this->data);
     }
